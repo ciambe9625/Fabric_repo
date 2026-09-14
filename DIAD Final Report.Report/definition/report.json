@@ -1,0 +1,161 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY17SU12",
+      "reportVersionAtImport": {
+        "visual": "1.8.26",
+        "report": "2.0.26",
+        "page": "1.3.26"
+      },
+      "type": "SharedResources"
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "Filtere6c2f3f7baeff5b52dfb",
+        "field": {
+          "GroupRef": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Manufacturer"
+              }
+            },
+            "Property": "Manufacturer (groups)",
+            "GroupedColumns": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Manufacturer"
+                    }
+                  },
+                  "Property": "Manufacturer"
+                }
+              }
+            ]
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "m",
+              "Entity": "Manufacturer",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "m"
+                          }
+                        },
+                        "Property": "Manufacturer (groups)"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Top Competitors'"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'VanArsdel, Ltd.'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      }
+    ]
+  },
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "resourcePackages": [
+    {
+      "name": "PBI_CV_16948668_E17D_454B_8664_2F2C470EA8C1",
+      "type": "CustomVisual",
+      "items": [
+        {
+          "name": "resources/PBI_CV_16948668_E17D_454B_8664_2F2C470EA8C1.pbiviz.json",
+          "path": "PBI_CV_16948668_E17D_454B_8664_2F2C470EA8C1.pbiviz.json",
+          "type": "CustomVisualMetadata"
+        }
+      ]
+    },
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "Charles_Demo309345418845167641.jpg",
+          "path": "Charles_Demo309345418845167641.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "Charles_Demo6061254270021832.jpg",
+          "path": "Charles_Demo6061254270021832.jpg",
+          "type": "Image"
+        },
+        {
+          "name": "shadow8576741281893376.png",
+          "path": "shadow8576741281893376.png",
+          "type": "Image"
+        },
+        {
+          "name": "VanArsdel_Logo5189797770849054.png",
+          "path": "VanArsdel_Logo5189797770849054.png",
+          "type": "Image"
+        }
+      ]
+    },
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "CY17SU12",
+          "path": "BaseThemes/CY17SU12.json",
+          "type": "BaseTheme"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "544d6b90a98e9e27ba79",
+  "position": {
+    "x": 35.121951219512191,
+    "y": 398.04878048780483,
+    "z": 1000,
+    "height": 101.46341463414633,
+    "width": 204.22764227642276,
+    "tabOrder": 14000
+  },
+  "visual": {
+    "visualType": "PBI_CV_16948668_E17D_454B_8664_2F2C470EA8C1",
+    "query": {
+      "queryState": {
+        "category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Date"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "Date.Date.Variation.Date Hierarchy.Year",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "colorSelector": [
+        {
+          "properties": {
+            "showAll": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'A play axis visual that allows the user to start and stop the years'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

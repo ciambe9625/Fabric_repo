@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmarksMetadata/1.0.0/schema.json",
+  "items": [
+    {
+      "name": "Bookmark8cef76e0209b7e8edc0a"
+    },
+    {
+      "name": "Bookmark24073e9f7f86d4ea2c82"
+    },
+    {
+      "name": "Bookmark91f7e5ac795e0a726318"
+    },
+    {
+      "name": "Bookmarkb670280d4d31164a18b5"
+    },
+    {
+      "name": "Bookmarkcfd53e1c11858d941104"
+    },
+    {
+      "name": "Bookmarkaa69a7209bb424e0d058"
+    },
+    {
+      "name": "Bookmark9c186e2107062ab04672"
+    },
+    {
+      "name": "Bookmark59c93b01e2393ef7bf6e"
+    },
+    {
+      "name": "Bookmark329fcd599be9c67a3e64"
+    },
+    {
+      "name": "Bookmarka7c6fda9562cfd744e75"
+    },
+    {
+      "name": "Bookmarkff2e25628d47da6fb1b1"
+    },
+    {
+      "name": "Bookmarke81f0bff4940c8b993ff"
+    },
+    {
+      "name": "Bookmark60025b96eda674242487"
+    },
+    {
+      "name": "Bookmark5954456f7015e4237754"
+    },
+    {
+      "name": "Bookmark04caeda9a4ba1da99300"
+    },
+    {
+      "name": "Bookmark07b5dcc01942c5744e60"
+    }
+  ]
+}
