@@ -1,0 +1,72 @@
+table faculty
+	lineageTag: 2e7a1172-1954-48ec-b3f6-1fd940d2e1bd
+
+	column faculty_id
+		dataType: string
+		lineageTag: 9a9331d7-698a-42c7-a8ad-156c3301fb3f
+		summarizeBy: none
+		sourceColumn: faculty_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column department
+		dataType: string
+		lineageTag: b6131dd6-6f31-450e-ab9b-0539fb81395d
+		summarizeBy: none
+		sourceColumn: department
+
+		annotation SummarizationSetBy = Automatic
+
+	column role
+		dataType: string
+		lineageTag: 5099baed-7208-4d27-b638-786368389ed9
+		summarizeBy: none
+		sourceColumn: role
+
+		annotation SummarizationSetBy = Automatic
+
+	column years_at_institution
+		dataType: string
+		lineageTag: 8a1cd4e0-a0f8-418f-8916-1f7145ef9867
+		summarizeBy: none
+		sourceColumn: years_at_institution
+
+		annotation SummarizationSetBy = Automatic
+
+	column courses_assigned
+		dataType: string
+		lineageTag: 0e47dee2-bc91-49e0-af76-55af8ee5b3bf
+		summarizeBy: none
+		sourceColumn: courses_assigned
+
+		annotation SummarizationSetBy = Automatic
+
+	column research_active
+		dataType: string
+		lineageTag: 42bc3a16-085d-44ae-a568-f69bc819f726
+		summarizeBy: none
+		sourceColumn: research_active
+
+		annotation SummarizationSetBy = Automatic
+
+	column hire_date
+		dataType: string
+		lineageTag: 354afa2a-3b64-4799-bd0c-7c59cd046276
+		summarizeBy: none
+		sourceColumn: hire_date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition faculty = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("alwswvisiugelbmnqth6fnaynu-5pdvum5vqcbe3gsxolgezjv32i.datawarehouse.fabric.microsoft.com", "LK_education"),
+				    dbo_faculty = Source{[Schema="dbo",Item="faculty"]}[Data]
+				in
+				    dbo_faculty
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

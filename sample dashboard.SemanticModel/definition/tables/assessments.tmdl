@@ -1,0 +1,127 @@
+table assessments
+	lineageTag: d3455c01-7d97-46eb-8d59-26c8c6c4cba0
+
+	measure EsamiPassati = CALCULATE(COUNT(assessments[is_pass]), assessments[is_pass] = 1)
+		formatString: 0
+		lineageTag: 88bff5ea-0781-488b-abf4-712c593c6f0a
+
+	column assessment_id
+		dataType: string
+		lineageTag: 8c91856b-fb1e-4167-8b4b-aa590bb3f6e3
+		summarizeBy: none
+		sourceColumn: assessment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column enrolment_id
+		dataType: string
+		lineageTag: 36c07f08-41ba-4b37-868f-0e418249773c
+		summarizeBy: none
+		sourceColumn: enrolment_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column student_id
+		dataType: string
+		lineageTag: ee01e516-4e58-4d58-8572-aa9b2dd065c9
+		summarizeBy: none
+		sourceColumn: student_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column course_id
+		dataType: string
+		lineageTag: ac659f2a-f15f-4ada-82c3-18c5f531babb
+		summarizeBy: none
+		sourceColumn: course_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column department
+		dataType: string
+		lineageTag: 77556a22-9e87-4d3a-8246-388de010dbd6
+		summarizeBy: none
+		sourceColumn: department
+
+		annotation SummarizationSetBy = Automatic
+
+	column assessment_type
+		dataType: string
+		lineageTag: 61de2c62-8714-4de2-8020-5a888956342b
+		summarizeBy: none
+		sourceColumn: assessment_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column attempt_number
+		dataType: string
+		lineageTag: ccd973f9-c9e1-4977-916d-e250d88559c9
+		summarizeBy: none
+		sourceColumn: attempt_number
+
+		annotation SummarizationSetBy = Automatic
+
+	column submitted_date
+		dataType: string
+		lineageTag: e765705e-179d-43f2-842a-854cc21a8c7e
+		summarizeBy: none
+		sourceColumn: submitted_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column score
+		dataType: int64
+		formatString: 0
+		lineageTag: 876301fe-25eb-4618-ba45-2ee3d1d92a23
+		summarizeBy: sum
+		sourceColumn: score
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column grade
+		dataType: string
+		lineageTag: 739b6530-5e80-4576-bf2c-11093fbf546c
+		summarizeBy: none
+		sourceColumn: grade
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_pass
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b0d0584-b144-4f81-b1ee-e856f4da11c5
+		summarizeBy: sum
+		sourceColumn: is_pass
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column word_count
+		dataType: int64
+		formatString: 0
+		lineageTag: e5ef4bcb-38dc-42dc-bb50-839f8189feed
+		summarizeBy: sum
+		sourceColumn: word_count
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition assessments = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("alwswvisiugelbmnqth6fnaynu-5pdvum5vqcbe3gsxolgezjv32i.datawarehouse.fabric.microsoft.com", "LK_education"),
+				    dbo_assessments = Source{[Schema="dbo",Item="assessments"]}[Data]
+				in
+				    dbo_assessments
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,119 @@
+table students
+	lineageTag: 5c896e95-f321-4a8d-bf72-76efd28a54ff
+
+	column student_id
+		dataType: string
+		lineageTag: 222faf9d-a6ee-437d-865c-cd0c2d6d79d4
+		summarizeBy: none
+		sourceColumn: student_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column programme
+		dataType: string
+		lineageTag: 9617f394-fb04-45e0-baea-867dd742a383
+		summarizeBy: none
+		sourceColumn: programme
+
+		annotation SummarizationSetBy = Automatic
+
+	column department
+		dataType: string
+		lineageTag: 42cf7ca6-e004-44c8-a741-d78229b04b7b
+		summarizeBy: none
+		sourceColumn: department
+
+		annotation SummarizationSetBy = Automatic
+
+	column level
+		dataType: string
+		lineageTag: aba3107b-badf-4aea-8b56-b1154d091599
+		summarizeBy: none
+		sourceColumn: level
+
+		annotation SummarizationSetBy = Automatic
+
+	column cohort_year
+		dataType: string
+		lineageTag: ebf6153a-a6c7-47c3-b89c-9f20e1fe2990
+		summarizeBy: none
+		sourceColumn: cohort_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column enrolment_date
+		dataType: string
+		lineageTag: 6ae60336-9387-4db1-aa01-b99f53ad5d41
+		summarizeBy: none
+		sourceColumn: enrolment_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: 389cd5b1-2b66-4974-ada7-66cc81ebdd39
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: 57789140-21b9-4792-a8a6-fb4eb0790b3b
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 5733fb01-99ed-4d53-8d05-f0f5f1f7724a
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	column age_at_enrolment
+		dataType: string
+		lineageTag: 2b1ccc63-a7e5-4202-8f3e-020f63e0f7c0
+		summarizeBy: none
+		sourceColumn: age_at_enrolment
+
+		annotation SummarizationSetBy = Automatic
+
+	column Enr_year = year(students[enrolment_date])
+		formatString: 0
+		lineageTag: ca581460-967e-4da9-ba3e-65b71187c258
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Enr_month = month(students[enrolment_date])
+		dataType: int64
+		formatString: 0
+		lineageTag: 9013eaa0-eef4-4169-bcc2-019711c86428
+		summarizeBy: sum
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column Enr_month_txt = format(date(1,students[Enr_month],1),"MMMM")
+		lineageTag: f74136b6-7186-4a3f-8086-6273b76baec9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition students = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("alwswvisiugelbmnqth6fnaynu-5pdvum5vqcbe3gsxolgezjv32i.datawarehouse.fabric.microsoft.com", "LK_education"),
+				    dbo_students = Source{[Schema="dbo",Item="students"]}[Data]
+				in
+				    dbo_students
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

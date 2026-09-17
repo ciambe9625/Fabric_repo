@@ -1,0 +1,17 @@
+relationship AutoDetected_e647584b-affb-4252-84da-d91a76b9a722
+	fromColumn: assessments.enrolment_id
+	toColumn: enrolments.enrolment_id
+
+relationship AutoDetected_250ef1f5-0ced-4933-8f15-beff60470f18
+	fromColumn: assessments.student_id
+	toColumn: students.student_id
+
+relationship AutoDetected_a366c8f1-3c9b-484f-b689-9f919de4c87c
+	isActive: false
+	fromColumn: enrolments.student_id
+	toColumn: students.student_id
+
+relationship AutoDetected_8d1283ca-c457-4dcf-aa72-c9593792a20f
+	fromColumn: platform_events.student_id
+	toColumn: students.student_id
+

@@ -1,0 +1,80 @@
+table platform_events
+	lineageTag: b15c9e1b-e8cc-4429-b69d-f8e81f6640e8
+
+	column event_id
+		dataType: string
+		lineageTag: 508d7575-4f4c-48c1-a71b-a9c5e1493120
+		summarizeBy: none
+		sourceColumn: event_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column student_id
+		dataType: string
+		lineageTag: b56d72e9-39f0-4f1c-927d-a55cea06e2f6
+		summarizeBy: none
+		sourceColumn: student_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column course_id
+		dataType: string
+		lineageTag: 47ddc5b1-324f-4b56-9ac3-24f757f42775
+		summarizeBy: none
+		sourceColumn: course_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column timestamp
+		dataType: string
+		lineageTag: 7ccf85fa-03a6-46ba-b5eb-19998340dc72
+		summarizeBy: none
+		sourceColumn: timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	column event_type
+		dataType: string
+		lineageTag: e56cdd10-93ff-4f18-98cc-2ddec034f569
+		summarizeBy: none
+		sourceColumn: event_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column session_duration_secs
+		dataType: string
+		lineageTag: 62c2c92b-7944-48de-86ef-8ed004abac5d
+		summarizeBy: none
+		sourceColumn: session_duration_secs
+
+		annotation SummarizationSetBy = Automatic
+
+	column platform
+		dataType: string
+		lineageTag: bd4aad3e-9fb3-4466-867a-e05bb8287e49
+		summarizeBy: none
+		sourceColumn: platform
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_error
+		dataType: string
+		lineageTag: 2e5a2213-d52d-41d7-9107-8d544d5d5506
+		summarizeBy: none
+		sourceColumn: is_error
+
+		annotation SummarizationSetBy = Automatic
+
+	partition platform_events = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database("alwswvisiugelbmnqth6fnaynu-5pdvum5vqcbe3gsxolgezjv32i.datawarehouse.fabric.microsoft.com", "LK_education"),
+				    dbo_platform_events = Source{[Schema="dbo",Item="platform_events"]}[Data]
+				in
+				    dbo_platform_events
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

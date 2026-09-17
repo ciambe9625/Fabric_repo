@@ -1,0 +1,23 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: it-IT
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["assessments","enrolments","faculty","platform_events","students"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table assessments
+ref table enrolments
+ref table faculty
+ref table platform_events
+ref table students
+
+ref cultureInfo en-US
+
