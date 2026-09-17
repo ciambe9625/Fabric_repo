@@ -1,0 +1,395 @@
+{
+  "properties": {
+    "jobMode": "Batch",
+    "source": {
+      "type": "DelimitedText",
+      "connectionSettings": {
+        "type": "AzureBlobFS",
+        "externalReferences": {
+          "connection": "beb5b24b-ba15-41dc-ac8f-ca333ef7d2ed"
+        }
+      }
+    },
+    "destination": {
+      "type": "LakehouseTable",
+      "connectionSettings": {
+        "type": "Lakehouse",
+        "typeProperties": {
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "artifactId": "4a3ec8a8-fe06-a36a-4810-29c5ca0e1c52",
+          "rootFolder": "Tables"
+        }
+      }
+    },
+    "policy": {
+      "timeout": "0.12:00:00",
+      "retry": 0
+    }
+  },
+  "activities": [
+    {
+      "id": "0883c0e5-3f4a-48bc-962f-d13e00187388",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "location": {
+              "type": "AzureBlobFSLocation",
+              "fileName": "assessments.csv",
+              "folderPath": "education-data",
+              "fileSystem": "devopsdev"
+            },
+            "columnDelimiter": ",",
+            "rowDelimiter": "\n",
+            "escapeChar": "\\",
+            "firstRowAsHeader": true,
+            "multiline": true,
+            "quoteChar": "\""
+          },
+          "storeSettings": {
+            "recursive": true,
+            "enablePartitionDiscovery": false
+          },
+          "formatSettings": {}
+        },
+        "destination": {
+          "partitionOption": "None",
+          "writeBehavior": "Overwrite",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "assessments"
+          },
+          "enableTimestampNtz": false,
+          "enableChangeDataFeed": false
+        },
+        "enableStaging": false,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "790f245f-dfa5-48fa-8d49-fc85f0940c86",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "location": {
+              "type": "AzureBlobFSLocation",
+              "fileName": "enrolments.csv",
+              "folderPath": "education-data",
+              "fileSystem": "devopsdev"
+            },
+            "columnDelimiter": ",",
+            "rowDelimiter": "\n",
+            "escapeChar": "\\",
+            "firstRowAsHeader": true,
+            "multiline": true,
+            "quoteChar": "\""
+          },
+          "storeSettings": {
+            "recursive": true,
+            "enablePartitionDiscovery": false
+          },
+          "formatSettings": {}
+        },
+        "destination": {
+          "partitionOption": "None",
+          "writeBehavior": "Overwrite",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "enrolments"
+          },
+          "enableTimestampNtz": false,
+          "enableChangeDataFeed": false
+        },
+        "enableStaging": false,
+        "translator": {
+          "type": "TabularTranslator",
+          "mappings": [
+            {
+              "source": {
+                "name": "assessment_id",
+                "type": "String",
+                "physicalType": "String"
+              },
+              "destination": {
+                "name": "assessment_id",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "enrolment_id",
+                "type": "String",
+                "physicalType": "String"
+              },
+              "destination": {
+                "name": "enrolment_id",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "student_id",
+                "type": "String",
+                "physicalType": "String"
+              },
+              "destination": {
+                "name": "student_id",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "course_id",
+                "type": "String",
+                "physicalType": "String"
+              },
+              "destination": {
+                "name": "course_id",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "department",
+                "type": "String",
+                "physicalType": "String"
+              },
+              "destination": {
+                "name": "department",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "assessment_type",
+                "type": "String",
+                "physicalType": "String"
+              },
+              "destination": {
+                "name": "assessment_type",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "attempt_number",
+                "type": "String",
+                "physicalType": "String"
+              },
+              "destination": {
+                "name": "attempt_number",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "submitted_date",
+                "type": "String",
+                "physicalType": "String"
+              },
+              "destination": {
+                "name": "submitted_date",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "score",
+                "type": "String",
+                "physicalType": "String"
+              },
+              "destination": {
+                "name": "score",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "grade",
+                "type": "String",
+                "physicalType": "String"
+              },
+              "destination": {
+                "name": "grade",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "is_pass",
+                "type": "String",
+                "physicalType": "String"
+              },
+              "destination": {
+                "name": "is_pass",
+                "physicalType": "string"
+              }
+            },
+            {
+              "source": {
+                "name": "word_count",
+                "type": "String",
+                "physicalType": "String"
+              },
+              "destination": {
+                "name": "word_count",
+                "physicalType": "string"
+              }
+            }
+          ]
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "6278915e-00d9-4e4b-9bab-17490f4ff8a3",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "location": {
+              "type": "AzureBlobFSLocation",
+              "fileName": "faculty.csv",
+              "folderPath": "education-data",
+              "fileSystem": "devopsdev"
+            },
+            "columnDelimiter": ",",
+            "rowDelimiter": "\n",
+            "escapeChar": "\\",
+            "firstRowAsHeader": true,
+            "multiline": true,
+            "quoteChar": "\""
+          },
+          "storeSettings": {
+            "recursive": true,
+            "enablePartitionDiscovery": false
+          },
+          "formatSettings": {}
+        },
+        "destination": {
+          "partitionOption": "None",
+          "writeBehavior": "Overwrite",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "faculty"
+          },
+          "enableTimestampNtz": false,
+          "enableChangeDataFeed": false
+        },
+        "enableStaging": false,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "6ccc1ffa-6c32-420e-b494-138433443ea5",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "location": {
+              "type": "AzureBlobFSLocation",
+              "fileName": "platform_events.csv",
+              "folderPath": "education-data",
+              "fileSystem": "devopsdev"
+            },
+            "columnDelimiter": ",",
+            "rowDelimiter": "\n",
+            "escapeChar": "\\",
+            "firstRowAsHeader": true,
+            "multiline": true,
+            "quoteChar": "\""
+          },
+          "storeSettings": {
+            "recursive": true,
+            "enablePartitionDiscovery": false
+          },
+          "formatSettings": {}
+        },
+        "destination": {
+          "partitionOption": "None",
+          "writeBehavior": "Overwrite",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "platform_events"
+          },
+          "enableTimestampNtz": false,
+          "enableChangeDataFeed": false
+        },
+        "enableStaging": false,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "9b7877c4-8394-45be-b876-4f988c1e05ae",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "location": {
+              "type": "AzureBlobFSLocation",
+              "fileName": "students.csv",
+              "folderPath": "education-data",
+              "fileSystem": "devopsdev"
+            },
+            "columnDelimiter": ",",
+            "rowDelimiter": "\n",
+            "escapeChar": "\\",
+            "firstRowAsHeader": true,
+            "multiline": true,
+            "quoteChar": "\""
+          },
+          "storeSettings": {
+            "recursive": true,
+            "enablePartitionDiscovery": false
+          },
+          "formatSettings": {}
+        },
+        "destination": {
+          "partitionOption": "None",
+          "writeBehavior": "Overwrite",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "students"
+          },
+          "enableTimestampNtz": false,
+          "enableChangeDataFeed": false
+        },
+        "enableStaging": false,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    }
+  ]
+}
