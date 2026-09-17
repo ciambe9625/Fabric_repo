@@ -1,0 +1,57 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "566ecb2b5409b51b8695",
+  "position": {
+    "x": 726,
+    "y": 0,
+    "z": 6,
+    "height": 540,
+    "width": 560,
+    "tabOrder": 5
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "assessments"
+                    }
+                  },
+                  "Property": "score"
+                }
+              },
+              "queryRef": "Sum(assessments.score)",
+              "nativeQueryRef": "score",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "assessments"
+                    }
+                  },
+                  "Property": "word_count"
+                }
+              },
+              "queryRef": "assessments.word_count",
+              "nativeQueryRef": "word_count"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "9caf1f204d48ca2b1959",
+  "position": {
+    "x": 0,
+    "y": 556,
+    "z": 3,
+    "height": 524,
+    "width": 1286,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "students"
+                    }
+                  },
+                  "Property": "Enr_month_txt"
+                }
+              },
+              "queryRef": "students.Enr_month_txt",
+              "nativeQueryRef": "Enr_month_txt",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "students"
+                    }
+                  },
+                  "Property": "enrolment_date"
+                }
+              },
+              "queryRef": "students.enrolment_date",
+              "nativeQueryRef": "enrolment_date",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "students"
+                        }
+                      },
+                      "Property": "student_id"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(students.student_id)",
+              "nativeQueryRef": "Count of student_id"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "students"
+                  }
+                },
+                "Property": "enrolment_date"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
