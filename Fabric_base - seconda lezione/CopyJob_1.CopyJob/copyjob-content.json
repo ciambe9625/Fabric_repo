@@ -1,0 +1,191 @@
+{
+  "properties": {
+    "jobMode": "CDC",
+    "source": {
+      "type": "Binary",
+      "connectionSettings": {
+        "type": "AzureBlobStorage",
+        "externalReferences": {
+          "connection": "fc314fcd-9f49-4478-b26b-ecb8b167477b"
+        }
+      }
+    },
+    "destination": {
+      "type": "Binary",
+      "connectionSettings": {
+        "type": "Lakehouse",
+        "typeProperties": {
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "artifactId": "7aeff6f5-0b7d-a98a-45e5-4a2c232cc83a",
+          "rootFolder": "Files"
+        }
+      }
+    },
+    "policy": {
+      "timeout": "0.12:00:00",
+      "retry": 0
+    }
+  },
+  "activities": [
+    {
+      "id": "175fde6d-8b12-41ff-be56-3947ee3eb9cc",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "location": {
+              "type": "AzureBlobStorageLocation",
+              "fileName": "DimCurrency.csv",
+              "container": "lab-files"
+            }
+          },
+          "changeDataSettings": {
+            "readMethod": "SnapshotPlusIncremental"
+          },
+          "storeSettings": {
+            "recursive": true
+          }
+        },
+        "destination": {
+          "datasetSettings": {
+            "location": {
+              "type": "LakehouseLocation",
+              "fileName": "DimCurrency.csv"
+            }
+          },
+          "storeSettings": {
+            "copyBehavior": "FlattenHierarchy"
+          }
+        },
+        "enableStaging": false
+      }
+    },
+    {
+      "id": "f831eff6-fd8d-4ea8-b572-18bcd57b6697",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "location": {
+              "type": "AzureBlobStorageLocation",
+              "fileName": "DimCustomer.csv",
+              "container": "lab-files"
+            }
+          },
+          "changeDataSettings": {
+            "readMethod": "SnapshotPlusIncremental"
+          },
+          "storeSettings": {
+            "recursive": true
+          }
+        },
+        "destination": {
+          "datasetSettings": {
+            "location": {
+              "type": "LakehouseLocation",
+              "fileName": "DimCustomer.csv"
+            }
+          },
+          "storeSettings": {
+            "copyBehavior": "FlattenHierarchy"
+          }
+        },
+        "enableStaging": false
+      }
+    },
+    {
+      "id": "5c121b1d-5fa3-450f-b526-e874694d0826",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "location": {
+              "type": "AzureBlobStorageLocation",
+              "fileName": "DimDate.csv",
+              "container": "lab-files"
+            }
+          },
+          "changeDataSettings": {
+            "readMethod": "SnapshotPlusIncremental"
+          },
+          "storeSettings": {
+            "recursive": true
+          }
+        },
+        "destination": {
+          "datasetSettings": {
+            "location": {
+              "type": "LakehouseLocation",
+              "fileName": "DimDate.csv"
+            }
+          },
+          "storeSettings": {
+            "copyBehavior": "FlattenHierarchy"
+          }
+        },
+        "enableStaging": false
+      }
+    },
+    {
+      "id": "d96b7a8c-6efe-492f-b003-5b52d9fba382",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "location": {
+              "type": "AzureBlobStorageLocation",
+              "fileName": "DimProduct.csv",
+              "container": "lab-files"
+            }
+          },
+          "changeDataSettings": {
+            "readMethod": "SnapshotPlusIncremental"
+          },
+          "storeSettings": {
+            "recursive": true
+          }
+        },
+        "destination": {
+          "datasetSettings": {
+            "location": {
+              "type": "LakehouseLocation",
+              "fileName": "DimProduct.csv"
+            }
+          },
+          "storeSettings": {
+            "copyBehavior": "FlattenHierarchy"
+          }
+        },
+        "enableStaging": false
+      }
+    },
+    {
+      "id": "bebdb1c3-e075-44bd-be80-8d1a0caf6eda",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "location": {
+              "type": "AzureBlobStorageLocation",
+              "fileName": "Dimension_Employee.csv",
+              "container": "lab-files"
+            }
+          },
+          "changeDataSettings": {
+            "readMethod": "SnapshotPlusIncremental"
+          },
+          "storeSettings": {
+            "recursive": true
+          }
+        },
+        "destination": {
+          "datasetSettings": {
+            "location": {
+              "type": "LakehouseLocation",
+              "fileName": "Dimension_Employee.csv"
+            }
+          },
+          "storeSettings": {
+            "copyBehavior": "FlattenHierarchy"
+          }
+        },
+        "enableStaging": false
+      }
+    }
+  ]
+}
